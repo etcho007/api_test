@@ -30,6 +30,12 @@ gem 'oj'
 
 gem 'doorkeeper'
 
+gem 'vlad-git'
+gem 'vlad'
+
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
