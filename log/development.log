@@ -1,0 +1,1099 @@
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20150408144935)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150408144935"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/users/" for ::1 at 2015-04-08 17:29:36 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"hossam", "last_name"=>"sherif"}}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.1) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.1) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.1) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:164:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:164:in `block in halting'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `each'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/hossamsherif/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/hossamsherif/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/hossamsherif/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.8ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (37.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (145.5ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007ffac2cc7ad0 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007ffac2cc77b0 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007ffac2cbf6a0 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+  [1m[36mActiveRecord::SchemaMigration Load (11.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started POST "/users/" for ::1 at 2015-04-08 17:38:37 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"hossam", "last_name"=>"sherif"}}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.1) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.1) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.1) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:164:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:164:in `block in halting'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `each'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/hossamsherif/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/hossamsherif/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/hossamsherif/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.7ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (46.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (164.8ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007f8821b7f3d0 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f8821b7ef70 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f8821b76e60 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/users/" for ::1 at 2015-04-08 17:38:52 +0200
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"hossam", "last_name"=>"sherif"}}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.1) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.1) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.1) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:164:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:164:in `block in halting'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `each'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/hossamsherif/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/hossamsherif/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/hossamsherif/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (103.4ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007f8821b7f3d0 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f8821b7ef70 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f8821b76e60 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/users/" for ::1 at 2015-04-08 17:44:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (10.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"hossam", "last_name"=>"sherif"}}
+Can't verify CSRF token authenticity
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (18.9ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "hossam"], ["last_name", "sherif"], ["created_at", "2015-04-08 15:44:07.411545"], ["updated_at", "2015-04-08 15:44:07.411545"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 73ms (ActiveRecord: 22.3ms)
+
+
+Started GET "/users/1" for ::1 at 2015-04-08 17:44:07 +0200
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = NULL LIMIT 1[0m
+Completed 404 Not Found in 47ms (ActiveRecord: 0.3ms)
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=id):
+  app/controllers/users_controller.rb:8:in `show'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (108.8ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (96.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (257.8ms)
+
+
+Started POST "/users/" for ::1 at 2015-04-08 17:45:29 +0200
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"hossam", "last_name"=>"sherif"}}
+Can't verify CSRF token authenticity
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "hossam"], ["last_name", "sherif"], ["created_at", "2015-04-08 15:45:29.359519"], ["updated_at", "2015-04-08 15:45:29.359519"]]
+  [1m[35m (3.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 19ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/users/2" for ::1 at 2015-04-08 17:45:29 +0200
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered users/show.rabl (14.3ms)
+Completed 200 OK in 67ms (Views: 65.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/" for ::1 at 2015-04-08 17:45:40 +0200
+Processing by UsersController#index as */*
+  Rendered users/index.rabl (1.9ms)
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 0.0ms)
+
+SyntaxError ((eval):2: syntax error, unexpected ':', expecting end-of-input
+attributes :id, :first_name :last_name
+                             ^):
+  app/views/users/index.rabl:2:in `_app_views_users_index_rabl__409477606454229622_70255085585220'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (130.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (85.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (199.1ms)
+
+
+Started GET "/users/" for ::1 at 2015-04-08 17:48:14 +0200
+Processing by UsersController#index as */*
+  Rendered users/index.rabl (1.7ms)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 0.0ms)
+
+SyntaxError ((eval):2: syntax error, unexpected ':', expecting end-of-input
+attributes :id, :first_name :last_name
+                             ^):
+  app/views/users/index.rabl:2:in `_app_views_users_index_rabl__409477606454229622_70255085585220'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (118.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (87.9ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (201.0ms)
+
+
+Started GET "/users/" for ::1 at 2015-04-08 17:48:33 +0200
+Processing by UsersController#index as */*
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.rabl (2.2ms)
+Completed 200 OK in 28ms (Views: 27.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/" for ::1 at 2015-04-08 17:49:20 +0200
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"Lazy", "last_name"=>"MG"}}
+Can't verify CSRF token authenticity
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["first_name", "Lazy"], ["last_name", "MG"], ["created_at", "2015-04-08 15:49:20.605848"], ["updated_at", "2015-04-08 15:49:20.605848"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 6ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users/3" for ::1 at 2015-04-08 17:49:20 +0200
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered users/show.rabl (0.3ms)
+Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/" for ::1 at 2015-04-08 17:53:34 +0200
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"Cool", "last_name"=>"Monkey"}}
+Can't verify CSRF token authenticity
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["first_name", "Cool"], ["last_name", "Monkey"], ["created_at", "2015-04-08 15:53:34.563601"], ["updated_at", "2015-04-08 15:53:34.563601"]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 7ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/users/4" for ::1 at 2015-04-08 17:53:34 +0200
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered users/show.rabl (0.7ms)
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/" for ::1 at 2015-04-08 19:40:48 +0200
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"Cool", "last_name"=>"Monkey"}}
+Can't verify CSRF token authenticity
+Filter chain halted as #<Proc:0x007fcb12eaa4e0@/Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_controller/metal/http_authentication.rb:69> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/" for ::1 at 2015-04-08 19:40:56 +0200
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"Cool", "last_name"=>"Monkey"}}
+Can't verify CSRF token authenticity
+Filter chain halted as #<Proc:0x007fcb12eaa4e0@/Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_controller/metal/http_authentication.rb:69> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/" for ::1 at 2015-04-08 19:41:02 +0200
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"Cool", "last_name"=>"Monkey"}}
+Can't verify CSRF token authenticity
+Filter chain halted as #<Proc:0x007fcb12eaa4e0@/Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_controller/metal/http_authentication.rb:69> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/" for ::1 at 2015-04-08 19:41:17 +0200
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"Cool", "last_name"=>"Monkey"}}
+Can't verify CSRF token authenticity
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["first_name", "Cool"], ["last_name", "Monkey"], ["created_at", "2015-04-08 17:41:17.582532"], ["updated_at", "2015-04-08 17:41:17.582532"]]
+  [1m[36m (30.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 66ms (ActiveRecord: 32.7ms)
+
+
+Started GET "/users/5" for ::1 at 2015-04-08 19:41:17 +0200
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered users/show.rabl (0.9ms)
+Completed 200 OK in 36ms (Views: 33.8ms | ActiveRecord: 0.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateApiKeys (20150408174232)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "api_keys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "access_token" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150408174232"]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mApiKey Exists (19.8ms)[0m  SELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", "80179ea2750a93730032d52253288af1"]]
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "api_keys" ("created_at", "updated_at", "access_token") VALUES (?, ?, ?)[0m  [["created_at", "2015-04-08 17:45:20.793994"], ["updated_at", "2015-04-08 17:45:20.793994"], ["access_token", "80179ea2750a93730032d52253288af1"]]
+  [1m[35m (10.0ms)[0m  commit transaction
+
+
+Started POST "/users/" for ::1 at 2015-04-08 19:50:00 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"Cool", "last_name"=>"Monkey"}}
+Can't verify CSRF token authenticity
+  [1m[35mApiKey Load (0.2ms)[0m  SELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."access_token" IS NULL LIMIT 1
+Filter chain halted as :restrict_access rendered or redirected
+Completed 401 Unauthorized in 51ms (ActiveRecord: 0.4ms)
+
+
+Started POST "/users/" for ::1 at 2015-04-08 19:50:08 +0200
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"Cool", "last_name"=>"Monkey"}}
+Can't verify CSRF token authenticity
+Filter chain halted as #<Proc:0x007f828f0773a8@/Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_controller/metal/http_authentication.rb:69> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/" for ::1 at 2015-04-08 19:50:24 +0200
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"Cool", "last_name"=>"Monkey"}}
+Can't verify CSRF token authenticity
+Filter chain halted as #<Proc:0x007f828f0773a8@/Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_controller/metal/http_authentication.rb:69> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/" for ::1 at 2015-04-08 19:50:31 +0200
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"Cool", "last_name"=>"Monkey"}}
+Can't verify CSRF token authenticity
+Filter chain halted as #<Proc:0x007f828f0773a8@/Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_controller/metal/http_authentication.rb:69> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/" for ::1 at 2015-04-08 19:50:33 +0200
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"Cool", "last_name"=>"Monkey"}}
+Can't verify CSRF token authenticity
+Filter chain halted as #<Proc:0x007f828f0773a8@/Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_controller/metal/http_authentication.rb:69> rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/" for ::1 at 2015-04-08 19:50:50 +0200
+
+SyntaxError (/Users/hossamsherif/Documents/Aptana Studio 3 Workspace/api_test/app/controllers/users_controller.rb:29: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/users_controller.rb:29: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (26.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (134.4ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007f828b366c98 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f828b366978 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f828a74f860 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/users/" for ::1 at 2015-04-08 19:51:06 +0200
+
+SyntaxError (/Users/hossamsherif/Documents/Aptana Studio 3 Workspace/api_test/app/controllers/users_controller.rb:29: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/users_controller.rb:29: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (95.0ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007f828b366c98 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f828b366978 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f828a74f860 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/users/" for ::1 at 2015-04-08 19:54:02 +0200
+
+SyntaxError (/Users/hossamsherif/Documents/Aptana Studio 3 Workspace/api_test/app/controllers/users_controller.rb:29: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/users_controller.rb:29: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (85.9ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007f828b366c98 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f828b366978 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f828a74f860 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/users/" for ::1 at 2015-04-08 19:54:29 +0200
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"D", "last_name"=>"Luffy"}}
+Can't verify CSRF token authenticity
+  [1m[36mApiKey Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1[0m  [["access_token", "Token token=80179ea2750a93730032d52253288af1"]]
+  Rendered text template (0.1ms)
+Filter chain halted as :restrict_access rendered or redirected
+Completed 401 Unauthorized in 81ms (Views: 19.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/" for ::1 at 2015-04-08 19:54:35 +0200
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"D", "last_name"=>"Luffy"}}
+Can't verify CSRF token authenticity
+  [1m[35mApiKey Exists (0.1ms)[0m  SELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", "80179ea2750a93730032d52253288af1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["first_name", "D"], ["last_name", "Luffy"], ["created_at", "2015-04-08 17:54:35.285824"], ["updated_at", "2015-04-08 17:54:35.285824"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 65ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users/6" for ::1 at 2015-04-08 19:54:35 +0200
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[35mApiKey Exists (0.2ms)[0m  SELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", "80179ea2750a93730032d52253288af1"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered users/show.rabl (0.9ms)
+Completed 200 OK in 30ms (Views: 26.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/" for ::1 at 2015-04-08 19:54:40 +0200
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"D", "last_name"=>"Luffy"}}
+Can't verify CSRF token authenticity
+  Rendered text template (0.0ms)
+Filter chain halted as :restrict_access rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-08 20:28:02 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as */*
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.6ms)
+Completed 200 OK in 84ms (Views: 58.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2015-04-08 20:29:06 +0200
+Processing by UsersController#index as */*
+  [1m[35mApiKey Exists (19.5ms)[0m  SELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", "80179ea2750a93730032d52253288af1"]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.rabl (7.2ms)
+Completed 200 OK in 178ms (Views: 54.8ms | ActiveRecord: 20.4ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2015-04-08 20:29:17 +0200
+Processing by UsersController#index as */*
+  [1m[35mApiKey Exists (0.2ms)[0m  SELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", "80179ea2750a93730032d52253288af1"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.rabl (2.3ms)
+Completed 200 OK in 30ms (Views: 28.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-04-08 20:30:44 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as */*
+  [1m[35mApiKey Exists (0.3ms)[0m  SELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", "80179ea2750a93730032d52253288af1"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.rabl (6.1ms)
+Completed 200 OK in 73ms (Views: 39.1ms | ActiveRecord: 0.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateDoorkeeperTables (20150409132553)
+  [1m[35m (0.1ms)[0m  begin transaction
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/hossamsherif/Documents/Aptana Studio 3 Workspace/api_test/db/migrate/20150409132553_create_doorkeeper_tables.rb:9)
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "oauth_applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "uid" varchar NOT NULL, "secret" varchar NOT NULL, "redirect_uri" text NOT NULL, "scopes" varchar DEFAULT '' NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (12.9ms)[0m  select sqlite_version(*)
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_oauth_applications_on_uid" ON "oauth_applications" ("uid")[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "oauth_access_grants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_owner_id" integer NOT NULL, "application_id" integer NOT NULL, "token" varchar NOT NULL, "expires_in" integer NOT NULL, "redirect_uri" text NOT NULL, "created_at" datetime NOT NULL, "revoked_at" datetime, "scopes" varchar) 
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_oauth_access_grants_on_token" ON "oauth_access_grants" ("token")[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "oauth_access_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_owner_id" integer, "application_id" integer, "token" varchar NOT NULL, "refresh_token" varchar, "expires_in" integer, "revoked_at" datetime, "created_at" datetime NOT NULL, "scopes" varchar) 
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_oauth_access_tokens_on_token" ON "oauth_access_tokens" ("token")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_oauth_access_tokens_on_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_oauth_access_tokens_on_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_oauth_access_tokens_on_resource_owner_id" ON "oauth_access_tokens" ("resource_owner_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_oauth_access_tokens_on_resource_owner_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_oauth_access_tokens_on_resource_owner_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_oauth_access_tokens_on_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_oauth_access_tokens_on_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "index_oauth_access_tokens_on_refresh_token" ON "oauth_access_tokens" ("refresh_token")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150409132553"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_oauth_access_grants_on_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_oauth_access_grants_on_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_oauth_access_tokens_on_refresh_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_oauth_access_tokens_on_refresh_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_oauth_access_tokens_on_resource_owner_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_oauth_access_tokens_on_resource_owner_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_oauth_access_tokens_on_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_oauth_access_tokens_on_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_oauth_applications_on_uid' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_oauth_applications_on_uid' AND type='index'
+
+
+
+Started GET "/users" for ::1 at 2015-04-09 15:29:30 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  Rendered text template (0.0ms)
+Filter chain halted as :restrict_access rendered or redirected
+Completed 401 Unauthorized in 48ms (Views: 20.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2015-04-09 15:30:00 +0200
+Processing by UsersController#index as */*
+  [1m[35mApiKey Exists (0.2ms)[0m  SELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", "80179ea2750a93730032d52253288af1"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.rabl (9.8ms)
+Completed 200 OK in 136ms (Views: 46.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users" for ::1 at 2015-04-09 15:30:22 +0200
+Processing by UsersController#index as */*
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 118ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2015-04-09 15:30:52 +0200
+Processing by UsersController#index as */*
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/oauth/authorize" for ::1 at 2015-04-09 15:34:22 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Doorkeeper::AuthorizationsController#new as */*
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.0ms)
+
+RuntimeError (Please configure doorkeeper resource_owner_authenticator block located in /Users/hossamsherif/Documents/Aptana Studio 3 Workspace/api_test/config/initializers/doorkeeper.rb):
+  config/initializers/doorkeeper.rb:9:in `block (2 levels) in <top (required)>'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (141.9ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (82.9ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (220.6ms)
+
+
+Started GET "/oauth/authorize/1" for ::1 at 2015-04-09 15:35:08 +0200
+Processing by Doorkeeper::AuthorizationsController#show as */*
+  Parameters: {"code"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+RuntimeError (Please configure doorkeeper resource_owner_authenticator block located in /Users/hossamsherif/Documents/Aptana Studio 3 Workspace/api_test/config/initializers/doorkeeper.rb):
+  config/initializers/doorkeeper.rb:9:in `block (2 levels) in <top (required)>'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (82.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (77.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (174.5ms)
+
+
+Started GET "/oauth/authorize/2" for ::1 at 2015-04-09 15:35:15 +0200
+Processing by Doorkeeper::AuthorizationsController#show as */*
+  Parameters: {"code"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+RuntimeError (Please configure doorkeeper resource_owner_authenticator block located in /Users/hossamsherif/Documents/Aptana Studio 3 Workspace/api_test/config/initializers/doorkeeper.rb):
+  config/initializers/doorkeeper.rb:9:in `block (2 levels) in <top (required)>'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (86.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (76.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (162.5ms)
+
+
+Started GET "/oauth/authorize/user/1" for ::1 at 2015-04-09 15:35:21 +0200
+
+ActionController::RoutingError (No route matches [GET] "/oauth/authorize/user/1"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/hossamsherif/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/hossamsherif/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/hossamsherif/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (41.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (210.7ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (77.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (168.5ms)
+
+
+Started GET "/oauth/authorize/users/1" for ::1 at 2015-04-09 15:35:23 +0200
+
+ActionController::RoutingError (No route matches [GET] "/oauth/authorize/users/1"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/hossamsherif/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/hossamsherif/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/hossamsherif/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.8ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (127.7ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (76.9ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (175.3ms)
+
+
+Started GET "/oauth/authorize/users/" for ::1 at 2015-04-09 15:35:26 +0200
+Processing by Doorkeeper::AuthorizationsController#show as */*
+  Parameters: {"code"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+RuntimeError (Please configure doorkeeper resource_owner_authenticator block located in /Users/hossamsherif/Documents/Aptana Studio 3 Workspace/api_test/config/initializers/doorkeeper.rb):
+  config/initializers/doorkeeper.rb:9:in `block (2 levels) in <top (required)>'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (95.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (93.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (178.7ms)
+
+
+Started GET "/oauth/authorize/1" for ::1 at 2015-04-09 15:35:31 +0200
+Processing by Doorkeeper::AuthorizationsController#show as */*
+  Parameters: {"code"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+RuntimeError (Please configure doorkeeper resource_owner_authenticator block located in /Users/hossamsherif/Documents/Aptana Studio 3 Workspace/api_test/config/initializers/doorkeeper.rb):
+  config/initializers/doorkeeper.rb:9:in `block (2 levels) in <top (required)>'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (96.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (71.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (161.4ms)
+
+
+Started GET "/oauth/authorize/info" for ::1 at 2015-04-09 15:59:30 +0200
+Processing by Doorkeeper::AuthorizationsController#show as */*
+  Parameters: {"code"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+RuntimeError (Please configure doorkeeper resource_owner_authenticator block located in /Users/hossamsherif/Documents/Aptana Studio 3 Workspace/api_test/config/initializers/doorkeeper.rb):
+  config/initializers/doorkeeper.rb:9:in `block (2 levels) in <top (required)>'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (112.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (93.7ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (183.5ms)
+
+
+Started GET "/oauth/authorize/info" for ::1 at 2015-04-09 16:01:14 +0200
+Processing by Doorkeeper::AuthorizationsController#show as */*
+  Parameters: {"code"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+RuntimeError (Please configure doorkeeper resource_owner_authenticator block located in /Users/hossamsherif/Documents/Aptana Studio 3 Workspace/api_test/config/initializers/doorkeeper.rb):
+  config/initializers/doorkeeper.rb:9:in `block (2 levels) in <top (required)>'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (100.7ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (92.0ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (187.7ms)
+
+
+Started GET "/oauth/authorize/info" for ::1 at 2015-04-09 16:01:51 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Doorkeeper::AuthorizationsController#show as */*
+  Parameters: {"code"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms)
+
+RuntimeError (Please configure doorkeeper resource_owner_authenticator block located in /Users/hossamsherif/Documents/Aptana Studio 3 Workspace/api_test/config/initializers/doorkeeper.rb):
+  config/initializers/doorkeeper.rb:9:in `block (2 levels) in <top (required)>'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.8ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.7ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (124.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.2ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (86.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (217.6ms)
+
+
+Started GET "/oauth/authorize/" for ::1 at 2015-04-09 16:01:56 +0200
+Processing by Doorkeeper::AuthorizationsController#new as */*
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+RuntimeError (Please configure doorkeeper resource_owner_authenticator block located in /Users/hossamsherif/Documents/Aptana Studio 3 Workspace/api_test/config/initializers/doorkeeper.rb):
+  config/initializers/doorkeeper.rb:9:in `block (2 levels) in <top (required)>'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (92.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (87.9ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (184.2ms)
+
+
+Started GET "/oauth/authorize/" for ::1 at 2015-04-09 16:02:14 +0200
+Processing by Doorkeeper::AuthorizationsController#new as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+RuntimeError (Please configure doorkeeper resource_owner_authenticator block located in /Users/hossamsherif/Documents/Aptana Studio 3 Workspace/api_test/config/initializers/doorkeeper.rb):
+  config/initializers/doorkeeper.rb:9:in `block (2 levels) in <top (required)>'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (93.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (74.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (168.4ms)
+
+
+Started GET "/oauth/authorize/" for ::1 at 2015-04-09 16:02:57 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Doorkeeper::AuthorizationsController#new as */*
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 0.5ms)
+
+NameError (undefined local variable or method `new_user_session_url' for #<Doorkeeper::AuthorizationsController:0x007f9617c83b38>):
+  config/initializers/doorkeeper.rb:12:in `block (2 levels) in <top (required)>'
+
+
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.0ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.9ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (128.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (77.3ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/hossamsherif/.rvm/gems/ruby-2.2.1@global/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (181.2ms)
